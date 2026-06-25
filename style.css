@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: #050505;
+  color: #ffffff;
+  font-family: "Assistant", "Heebo", Arial, sans-serif;
+  overflow: hidden;
+}
+
+.page {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(255, 122, 24, 0.11), transparent 31%),
+    linear-gradient(180deg, #070707 0%, #000000 100%);
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 72%);
+  pointer-events: none;
+}
+
+.hero {
+  position: relative;
+  width: min(92vw, 1100px);
+  min-height: 44vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1.2s ease both;
+}
+
+h1 {
+  font-family: "Heebo", "Assistant", Arial, sans-serif;
+  font-size: clamp(2.1rem, 5.4vw, 5.4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  text-align: center;
+  color: #ff7a18;
+  text-wrap: balance;
+  text-shadow: 0 0 24px rgba(255, 122, 24, 0.16);
+}
+
+p {
+  position: absolute;
+  right: clamp(1rem, 4vw, 3rem);
+  bottom: clamp(-2rem, 1vw, 0rem);
+  font-family: "Assistant", Arial, sans-serif;
+  font-size: clamp(1rem, 1.55vw, 1.45rem);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    width: 86vw;
+    min-height: 52vh;
+  }
+
+  h1 {
+    font-size: clamp(2.15rem, 12vw, 4.1rem);
+    max-width: 9ch;
+  }
+
+  p {
+    right: 0;
+    bottom: -1.6rem;
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 2.35rem;
+  }
+}
